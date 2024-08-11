@@ -1,0 +1,70 @@
+@font-face {
+    font-family: helloKittyFont;
+    src: url(./Boldins.ttf);
+}
+
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+body {
+    font-family: helloKittyFont;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    color: pink;
+}
+
+#calculator-background {
+    height: 520px;
+    width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(244, 130, 149);
+    border-radius: 15px;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    padding: 20px 15px;
+    border: 1px solid rgb(239, 63, 118);
+    box-shadow: 0px 15px 25px rgb(238, 126, 162);
+}
+
+#calculator {
+    height: 500px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: pink;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 20px;
+    transform: translateY(-6px);
+}
+
+#display{
+    height: 100px;
+    width: 280px;
+    border: 2px solid green;
+    border-radius: 10px;
+    background-color: lightgreen;
+
+}
+
+#buttons-container {
+    height: 400px;
+    width: 280px;
+    background-color: rgb(247, 114, 136);
+    border: 2px solid rgb(244, 51, 83) ;
+    border-radius: 10px;
+}
+
+#
