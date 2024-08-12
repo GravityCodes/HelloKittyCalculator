@@ -3,6 +3,11 @@
     src: url(./Boldins.ttf);
 }
 
+@font-face {
+    font-family: calcDisplayText;
+    src: url(./8bitOperatorPlus8-Regular.ttf);
+}
+
 html {
     box-sizing: border-box;
   }
@@ -68,6 +73,7 @@ h1 {
     font-size: 40px;
     margin: 0;
     color: rgb(42, 81, 3);
+    font-family: calcDisplayText;
 }
 
 #buttons-container {
