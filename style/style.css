@@ -80,12 +80,20 @@ h1 {
     gap: 2px 0px;
 }
 
-.operator-btn-style {
+/*.operator-btn-style {
     height: 80px;
     width: 80px;
     background-color: rgb(234, 207, 235);
     border-radius: 50%;
     
+}*/
+
+.operators {
+    background-color: rgb(234, 207, 235);
+}
+
+.nums {
+    background-color: rgb(242, 160, 226);
 }
 
 #functions {
@@ -94,13 +102,36 @@ h1 {
     
 }
 
-.num-btn-style {
-    height: 80px;
-    width: 80px;
+.btn-style {
+    height: 75px;
+    width: 75px;
     background-color: rgb(229, 135, 210);
     border-radius: 50%;
+    outline-offset: 4px;
+    border: none;
+
     
 }
+
+.btn-font {
+    font-family: helloKittyFont;
+    font-size: large;
+}
+
+
+.btn-front {
+    display: block;
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    transform: translateY(-6px) translateX(-5px);
+    padding-top: 30px
+    
+}
+
+.btn-style:active .btn-front {
+    transform: translateY(-2px) translateX(-5px);
+  }
 
 #numbers {
     display: flex;
