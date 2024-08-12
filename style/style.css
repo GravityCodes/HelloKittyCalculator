@@ -56,6 +56,7 @@ h1 {
     border: 2px solid green;
     border-radius: 10px;
     background-color: lightgreen;
+    box-shadow: inset 2px 2px 5px rgb(4, 73, 4);
 
 }
 
@@ -68,6 +69,7 @@ h1 {
     border: 2px solid rgb(244, 51, 83) ;
     border-radius: 10px;
     justify-content: space-between;
+    box-shadow: inset -3px -3px 20px rgb(217, 52, 79);
 }
 
 #container-left {
@@ -80,20 +82,41 @@ h1 {
     gap: 15px 0px;
 }
 
-/*.operator-btn-style {
-    height: 80px;
-    width: 80px;
-    background-color: rgb(234, 207, 235);
-    border-radius: 50%;
-    
-}*/
-
-.operators {
-    background-color: rgb(234, 207, 235);
+#container-right {
+    display: flex;
+    align-items: center;
+    padding: 15px 0px 5px;
 }
 
-.nums {
+.op-btn-style {
+    height: 75px;
+    width: 60px;
+    background-color: rgb(21, 166, 185);
+    border: none;
+}
+
+.op-btn-front {
+    display: block;
+    height: 75px;
+    width: 60px;
+    transform: translateY(-6px) translateX(-6px);
+    padding-top: 30px
+}
+
+.op-btn-style:active .op-btn-front {
+    transform: translateY(-2px) translateX(-5px);
+}
+
+.functions-colors {
+    background-color: rgb(240, 202, 232);
+}
+
+.nums-colors {
     background-color: rgb(242, 160, 226);
+}
+
+.operator-colors {
+    background-color: rgb(178, 226, 237);
 }
 
 #functions {
@@ -125,7 +148,7 @@ h1 {
     height: 75px;
     width: 75px;
     border-radius: 50%;
-    transform: translateY(-6px) translateX(-5px);
+    transform: translateY(-6px) translateX(-6px);
     padding-top: 30px
     
 }
@@ -143,7 +166,14 @@ h1 {
 }
 
 #operators {
-    height: 350px;
-    width:  60px;
+    height: 100%;
+    width:  60px;   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     
+}
+
+.btn-shadow {
+    box-shadow: 2px 2px 3px rgb(127, 21, 39) ;
 }
