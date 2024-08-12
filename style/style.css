@@ -24,7 +24,7 @@ h1 {
 
 #calculator-background {
     height: 520px;
-    width: 320px;
+    width: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,7 +39,7 @@ h1 {
 
 #calculator {
     height: 500px;
-    width: 300px;
+    width: 400px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -52,7 +52,7 @@ h1 {
 
 #display{
     height: 100px;
-    width: 280px;
+    width: 350px;
     border: 2px solid green;
     border-radius: 10px;
     background-color: lightgreen;
@@ -61,10 +61,57 @@ h1 {
 
 #buttons-container {
     height: 400px;
-    width: 280px;
+    width: 350px;
+    display: flex;
+    padding: 10px;
     background-color: rgb(247, 114, 136);
     border: 2px solid rgb(244, 51, 83) ;
     border-radius: 10px;
+    justify-content: space-between;
 }
 
-#
+#container-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:flex-end;
+    height: 376px;
+    width: 290px;
+    gap: 2px 0px;
+}
+
+.operator-btn-style {
+    height: 80px;
+    width: 80px;
+    background-color: rgb(234, 207, 235);
+    border-radius: 50%;
+    
+}
+
+#functions {
+    display: flex;
+    gap:0px 10px;
+    
+}
+
+.num-btn-style {
+    height: 80px;
+    width: 80px;
+    background-color: rgb(229, 135, 210);
+    border-radius: 50%;
+    
+}
+
+#numbers {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-start;
+    
+    gap: 25px 10px;
+}
+
+#operators {
+    height: 350px;
+    width:  60px;
+    
+}
