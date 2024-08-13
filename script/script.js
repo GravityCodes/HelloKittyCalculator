@@ -20,6 +20,7 @@ const operatorSigns = {
 }
 
 let getSecondNum = false;
+let gotTotal = false;
 
 // Operation functions
 function add(a, b){
@@ -57,6 +58,16 @@ function switchOperation(operation){
             total = Math.round(operate(Number(firstNum), Number(secondNum), divide) * 100) /100;
             break;
     }
+    gotTotal = true;
+}
+
+function allClearFunc() {
+    gotTotal = false
+    firstNum = "";
+    secondNum = "";
+    getSecondNum = false;
+    displayText.textContent = "0";
+    displayHistory.textContent = "";
 }
 
 //Calculate numbers 
@@ -66,7 +77,7 @@ operations.forEach((operator) => operator.addEventListener('click', () => {
         switchOperation(operation)
         displayHistory.textContent =`${firstNum} ${operatorSigns[operation]} ${secondNum} = `
         secondNum = ""
-        firstNum = total
+        firstNum = String(total)
         displayText.textContent = total
         operation = ""
         
@@ -74,7 +85,7 @@ operations.forEach((operator) => operator.addEventListener('click', () => {
     else if (secondNum != "") {
         switchOperation(operation)
         secondNum = ""
-        firstNum = total
+        firstNum = String(total)
         displayText.textContent = total
         operation = operator.id
         displayHistory.textContent = ` ${firstNum} ${operatorSigns[operation]}`
@@ -82,6 +93,7 @@ operations.forEach((operator) => operator.addEventListener('click', () => {
     else if(operator.id != "equal") {
         operation = operator.id;
         getSecondNum = true;
+        gotTotal = false;
         displayHistory.textContent = `${firstNum} ${operatorSigns[operation]} `;
     }
     
@@ -90,7 +102,12 @@ operations.forEach((operator) => operator.addEventListener('click', () => {
 
 //Get first number and second number
 numButtons.forEach((num) => num.addEventListener('click', () => {
-    if(!getSecondNum){
+    if(gotTotal === true){
+        allClearFunc();
+        firstNum = String(Number(num.textContent));
+        displayText.textContent = firstNum;
+    }
+    else if(!getSecondNum){
         firstNum += String(Number(num.textContent));
         displayText.textContent = firstNum;
     }
@@ -103,7 +120,12 @@ numButtons.forEach((num) => num.addEventListener('click', () => {
 }));
 
 zeroButton.addEventListener('click', () => {
-    if(!getSecondNum && firstNum != ""){
+    if(gotTotal === true){
+        allClearFunc();
+        firstNum = String(Number(zeroButton.textContent));;
+        displayText.textContent = firstNum;
+    }
+    else if(!getSecondNum && firstNum != ""){
         firstNum += String(Number(zeroButton.textContent));
         displayText.textContent = firstNum;
     }
@@ -115,31 +137,31 @@ zeroButton.addEventListener('click', () => {
     
 //All clear, Clear and delete logic
 buttonFunctions.forEach((button) => button.addEventListener('click', () => {
-    switch(button.id){
-        case "allclear":
-            firstNum = "";
-            secondNum = "";
-            getSecondNum = false;
-            displayText.textContent = "0";
-            displayHistory.textContent = "";
-            break;
-        case "clear":
-            getSecondNum ? secondNum = "" : firstNum = "";
-            displayText.textContent = "0";
-            break;
-        case "delete":
-            if(getSecondNum) {
-                secondNum = secondNum.replace(secondNum[secondNum.length-1], '');
-                displayText.textContent = secondNum;
-                console.log(secondNum)
-            }
-            else{
-                firstNum = firstNum.replace(firstNum[firstNum.length-1], '');
-                displayText.textContent = firstNum;
-                console.log(firstNum)
-            }
-            break;
-
+    if(gotTotal === true){
+        allClearFunc();
+    }
+    else{
+        switch(button.id){
+            case "allclear":
+                allClearFunc();
+                break;
+            case "clear":
+                getSecondNum ? secondNum = "" : firstNum = "";
+                displayText.textContent = "0";
+                break;
+            case "delete":
+                if(getSecondNum) {
+                    secondNum = secondNum.replace(secondNum[secondNum.length-1], '');
+                    displayText.textContent = secondNum;
+                    console.log(secondNum)
+                }
+                else{
+                    firstNum = firstNum.replace(firstNum[firstNum.length-1], '');
+                    displayText.textContent = firstNum;
+                    console.log(firstNum)
+                }
+                break;
+        }  
     }
 
 })) 
@@ -147,7 +169,12 @@ buttonFunctions.forEach((button) => button.addEventListener('click', () => {
 // dot button logic
 
 dot.addEventListener('click', () => {
-    if(firstNum === "" || firstNum.includes(".") === false){
+    if(gotTotal === true){
+        allClearFunc();
+        firstNum = ".";
+        displayText.textContent = firstNum;
+    }
+    else if(firstNum === "" || firstNum.includes(".") === false){
         console.log(firstNum.includes("."))
         firstNum += ".";
         displayText.textContent = firstNum;

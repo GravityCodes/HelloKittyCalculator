@@ -72,8 +72,9 @@ h1 {
 }
 
 #display p {
+    height: 40px ;
     font-size: 40px;
-    margin: 0;
+    margin: 1px;
     color: rgb(42, 81, 3);
     font-family: calcDisplayText;
 }
