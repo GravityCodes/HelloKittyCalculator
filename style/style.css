@@ -59,8 +59,9 @@ h1 {
     height: 100px;
     width: 350px;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-end;
     border: 2px solid green;
     border-radius: 10px;
     background-color: lightgreen;
@@ -75,6 +76,12 @@ h1 {
     margin: 0;
     color: rgb(42, 81, 3);
     font-family: calcDisplayText;
+}
+
+#history p{
+    font-size: 20px;
+    height: 20px;
+    width: 330px;
 }
 
 #buttons-container {
@@ -94,6 +101,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content:flex-end;
+    padding-bottom: 5px;
     height: 376px;
     width: 290px;
     gap: 15px 0px;
@@ -102,7 +110,9 @@ h1 {
 #container-right {
     display: flex;
     align-items: center;
-    padding: 15px 0px 5px;
+    flex-direction: column;
+    padding: 5px 0px 5px;
+    gap: 15px 0px;
 }
 
 .op-btn-style {
@@ -117,7 +127,7 @@ h1 {
     height: 60px;
     width: 60px;
     transform: translateY(-6px) translateX(-6px);
-    padding-top: 20px;
+    padding-top: 15px;
     font-size: 30px;
 }
 
@@ -139,14 +149,15 @@ h1 {
 
 #functions {
     display: flex;
-    gap:0px 10px;
+    justify-content: space-between;
     width: 100%;
+    padding-right: 20px;
     
 }
 
 .btn-style {
-    height: 75px;
-    width: 75px;
+    height: 65px;
+    width: 65px;
     background-color: rgb(229, 135, 210);
     border-radius: 50%;
     outline-offset: 4px;
@@ -163,8 +174,8 @@ h1 {
 
 .btn-front {
     display: block;
-    height: 75px;
-    width: 75px;
+    height: 65px;
+    width: 65px;
     border-radius: 50%;
     transform: translateY(-6px) translateX(-6px);
     padding-top: 30px
@@ -180,7 +191,20 @@ h1 {
     flex-wrap: wrap-reverse;
     justify-content: flex-start;
     
-    gap: 25px 10px;
+    gap: 10px 25px;
+}
+
+#zero {
+    height: 60px;
+    width: 250px;
+    border-radius: 0%;
+}
+
+.zero {
+    height: 60px;
+    width: 250px;
+    border-radius: 0%;
+    padding-top: 22px;
 }
 
 #operators {
