@@ -66,6 +66,7 @@ h1 {
     background-color: lightgreen;
     box-shadow: inset 2px 2px 5px rgb(4, 73, 4);
     padding: 10px 10px 2px;
+    overflow: hidden;
 
 }
 
@@ -105,7 +106,7 @@ h1 {
 }
 
 .op-btn-style {
-    height: 75px;
+    height: 60px;
     width: 60px;
     background-color: rgb(21, 166, 185);
     border: none;
@@ -113,10 +114,11 @@ h1 {
 
 .op-btn-front {
     display: block;
-    height: 75px;
+    height: 60px;
     width: 60px;
     transform: translateY(-6px) translateX(-6px);
-    padding-top: 30px
+    padding-top: 20px;
+    font-size: 30px;
 }
 
 .op-btn-style:active .op-btn-front {
