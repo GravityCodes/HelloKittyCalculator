@@ -18,13 +18,16 @@ html {
 body {
     font-family: helloKittyFont;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
+    padding: 100px;
+    height: 100vh;
+
 }
 
 h1 {
-    color: pink;
+    color: rgb(184, 97, 112);
 }
 
 #calculator-background {
@@ -236,4 +239,9 @@ h1 {
 
 .btn-shadow {
     box-shadow: 2px 2px 3px rgb(127, 21, 39);
+}
+
+footer{
+    font-family: monospace;
+    font-weight: bold;
 }
