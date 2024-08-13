@@ -73,6 +73,12 @@ function allClearFunc() {
 //Calculate numbers 
 operations.forEach((operator) => operator.addEventListener('click', () => {
 
+    if(operator.id != "equal" && firstNum === ""){
+        firstNum = "0"
+        getSecondNum = true;
+        gotTotal = false;
+        displayHistory.textContent = `${firstNum} ${operatorSigns[operation]}`;
+    }
     if(operator.id === "equal" && firstNum != "" && secondNum != "") {
         switchOperation(operation)
         displayHistory.textContent =`${firstNum} ${operatorSigns[operation]} ${secondNum} = `
@@ -92,10 +98,12 @@ operations.forEach((operator) => operator.addEventListener('click', () => {
     }
     else if(operator.id != "equal") {
         operation = operator.id;
+        console.log(operatorSigns[operation]);
         getSecondNum = true;
         gotTotal = false;
         displayHistory.textContent = `${firstNum} ${operatorSigns[operation]} `;
     }
+    
     
 }))
 
