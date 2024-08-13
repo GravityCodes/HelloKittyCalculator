@@ -59,6 +59,7 @@ function switchOperation(operation){
             break;
     }
     gotTotal = true;
+    operation ="";
 }
 
 function allClearFunc() {
@@ -110,7 +111,7 @@ operations.forEach((operator) => operator.addEventListener('click', () => {
 
 //Get first number and second number
 numButtons.forEach((num) => num.addEventListener('click', () => {
-    if(gotTotal === true){
+    if(gotTotal === true && operation === ""){
         allClearFunc();
         firstNum = String(Number(num.textContent));
         displayText.textContent = firstNum;
