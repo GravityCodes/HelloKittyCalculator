@@ -194,15 +194,32 @@ h1 {
     gap: 10px 25px;
 }
 
-#zero {
+#bottom-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 25px;
+}
+
+.bottom-btn,
+.bottom-btn-front {
     height: 60px;
-    width: 250px;
+    width: 160px;
     border-radius: 0%;
 }
 
-.zero {
+
+.bottom-btn-front {
+    padding-top: 22px;
+}
+
+#dot {
+    width: 60px;
+}
+
+.dot {
     height: 60px;
-    width: 250px;
+    width: 60px;
     border-radius: 0%;
     padding-top: 22px;
 }
