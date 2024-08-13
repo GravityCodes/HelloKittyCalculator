@@ -141,7 +141,6 @@ h1 {
     display: block;
     height: 60px;
     width: 60px;
-    transform: translateY(-6px) translateX(-6px);
     padding-top: 5px;
     font-size: 30px;
     overflow: hidden;
@@ -149,6 +148,12 @@ h1 {
 
 .op-btn-style:active .op-btn-front {
     transform: translateY(-2px) translateX(-5px);
+}
+
+.op-btn-front,
+.btn-front {
+    transform: translateY(-6px) translateX(-6px);
+    -webkit-transform: translateY(-6px) translateX(-6px);
 }
 
 .functions-colors {
@@ -193,7 +198,6 @@ h1 {
     height: 65px;
     width: 65px;
     border-radius: 50%;
-    transform: translateY(-6px) translateX(-6px);
     padding-top: 25px
     
 }
@@ -256,12 +260,4 @@ h1 {
 footer{
     font-family: monospace;
     font-weight: bold;
-}
-
-@media screen and (max-width: 450px){
-    .btn-front,
-    .op-btn-front{
-        transform: translateY(10px) translateX(-20px);
-    }
-    
 }
