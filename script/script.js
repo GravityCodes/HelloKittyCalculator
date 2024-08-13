@@ -4,6 +4,7 @@ const buttonFunctions = document.querySelectorAll("#functions button");
 const zeroButton = document.querySelector("#zero");
 const displayHistory = document.querySelector("#history p");
 const numButtons = document.querySelectorAll("#numbers button");
+const dot = document.querySelector("#dot");
 
 let firstNum = "";
 let secondNum = "";
@@ -66,7 +67,7 @@ operations.forEach((operator) => operator.addEventListener('click', () => {
         displayHistory.textContent =`${firstNum} ${operatorSigns[operation]} ${secondNum} = `
         secondNum = ""
         firstNum = total
-        displayText.textContent = Number(total).toFixed(2)
+        displayText.textContent = total
         operation = ""
         
     }
@@ -143,6 +144,19 @@ buttonFunctions.forEach((button) => button.addEventListener('click', () => {
 
 })) 
     
+// dot button logic
+
+dot.addEventListener('click', () => {
+    if(firstNum === "" || firstNum.includes(".") === false){
+        console.log(firstNum.includes("."))
+        firstNum += ".";
+        displayText.textContent = firstNum;
+    }
+    else if(getSecondNum && (secondNum === "" || !secondNum.includes("."))){
+        secondNum += ".";
+        displayText.textContent = secondNum;
+    }
+})
 
 
 
