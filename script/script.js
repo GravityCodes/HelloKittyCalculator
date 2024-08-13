@@ -129,7 +129,7 @@ numButtons.forEach((num) => num.addEventListener('click', () => {
 }));
 
 zeroButton.addEventListener('click', () => {
-    if(gotTotal === true){
+    if(gotTotal === true && operation === false){
         allClearFunc();
         firstNum = String(Number(zeroButton.textContent));;
         displayText.textContent = firstNum;
