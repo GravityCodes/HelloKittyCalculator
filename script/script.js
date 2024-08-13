@@ -64,7 +64,7 @@ function switchOperation(operation){
 //Calculate numbers 
 operations.forEach((operator) => operator.addEventListener('click', () => {
 
-    if(operator.id === "equal") {
+    if(operator.id === "equal" && firstNum != "" && secondNum != "") {
         switchOperation(operation)
         displayHistory.textContent =`${firstNum} ${operatorSigns[operation]} ${secondNum} = `
         secondNum = ""
@@ -81,7 +81,7 @@ operations.forEach((operator) => operator.addEventListener('click', () => {
         operation = operator.id
         displayHistory.textContent = ` ${firstNum} ${operatorSigns[operation]}`
     }
-    else {
+    else if(operator.id != "equal") {
         operation = operator.id;
         getSecondNum = true;
         displayHistory.textContent = `${firstNum} ${operatorSigns[operation]} `;
