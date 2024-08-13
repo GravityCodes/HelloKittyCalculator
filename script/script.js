@@ -1,11 +1,8 @@
-const display = document.querySelector("#display");
 const displayText = document.querySelector("#displayText");
-const allClear = document.querySelector("#allclear");
 const operations = document.querySelectorAll("#operators button");
 const buttonFunctions = document.querySelectorAll("#functions button");
 const zeroButton = document.querySelector("#zero");
 const displayHistory = document.querySelector("#history p");
-
 const numButtons = document.querySelectorAll("#numbers button");
 
 let firstNum = "";
@@ -56,7 +53,7 @@ function switchOperation(operation){
             total = operate(Number(firstNum), Number(secondNum), multiply);
             break;
         case 'divide':
-            total = operate(Number(firstNum), Number(secondNum), divide);
+            total = Math.round(operate(Number(firstNum), Number(secondNum), divide) * 100) /100;
             break;
     }
 }
@@ -69,7 +66,7 @@ operations.forEach((operator) => operator.addEventListener('click', () => {
         displayHistory.textContent =`${firstNum} ${operatorSigns[operation]} ${secondNum} = `
         secondNum = ""
         firstNum = total
-        displayText.textContent = total
+        displayText.textContent = Number(total).toFixed(2)
         operation = ""
         
     }
