@@ -147,13 +147,15 @@ h1 {
 }
 
 .op-btn-style:active .op-btn-front {
+    -webkit-transform: translateY(-2px) translateX(-5px);
     transform: translateY(-2px) translateX(-5px);
 }
 
 .op-btn-front,
 .btn-front {
-    transform: translateY(-6px) translateX(-6px);
-    -webkit-transform: translateY(-6px) translateX(-6px);
+    -webkit-transform: translate(-6px, -6px);
+    transform: translate(-6px,-6px);
+    
 }
 
 .functions-colors {
