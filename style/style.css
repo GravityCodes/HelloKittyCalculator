@@ -261,7 +261,7 @@ footer{
 @media screen and (max-width: 450px){
     .btn-front,
     .op-btn-front{
-        transform: translateY(-20px) translateX(-20px);
+        transform: translateY(0px) translateX(-20px);
     }
     
 }
