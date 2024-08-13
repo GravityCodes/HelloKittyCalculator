@@ -257,3 +257,11 @@ footer{
     font-family: monospace;
     font-weight: bold;
 }
+
+@media screen and (max-width: 450px){
+    .btn-front,
+    .op-btn-front{
+        transform: translateY(-20px) translateX(-20px);
+    }
+    
+}
