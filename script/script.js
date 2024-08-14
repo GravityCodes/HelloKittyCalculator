@@ -55,11 +55,12 @@ function switchOperation(operation){
             total = operate(Number(firstNum), Number(secondNum), multiply);
             break;
         case 'divide':
-            total = Math.round(operate(Number(firstNum), Number(secondNum), divide) * 100) /100;
+            total = operate(Number(firstNum), Number(secondNum), divide)
             break;
     }
     gotTotal = true;
     operation ="";
+    total = Math.round(total * 100) / 100
 }
 
 function allClearFunc() {
@@ -80,7 +81,7 @@ operations.forEach((operator) => operator.addEventListener('click', () => {
         gotTotal = false;
         displayHistory.textContent = `${firstNum} ${operatorSigns[operation]}`;
     }
-    if(operator.id === "equal" && firstNum != "" && secondNum != "") {
+    else if(operator.id === "equal" && firstNum != "" && secondNum != "") {
         switchOperation(operation)
         displayHistory.textContent =`${firstNum} ${operatorSigns[operation]} ${secondNum} = `
         secondNum = ""
@@ -183,15 +184,16 @@ dot.addEventListener('click', () => {
         firstNum = ".";
         displayText.textContent = firstNum;
     }
+    else if(getSecondNum && (secondNum === "" || !secondNum.includes("."))){
+        secondNum += ".";
+        displayText.textContent = secondNum;
+    }
     else if(firstNum === "" || firstNum.includes(".") === false){
         console.log(firstNum.includes("."))
         firstNum += ".";
         displayText.textContent = firstNum;
     }
-    else if(getSecondNum && (secondNum === "" || !secondNum.includes("."))){
-        secondNum += ".";
-        displayText.textContent = secondNum;
-    }
+    
 })
 
 
