@@ -166,8 +166,9 @@ button {
     overflow: hidden;
 }
 
-.op-btn-style:active .op-btn-front {
-    transform: translateY(-2px) translateX(-5px);
+.op-btn-style:active .op-btn-front,
+.btn-style:active .btn-front{
+    transform: translateY(-2px);
 }
 
 .op-btn-front,
@@ -220,9 +221,6 @@ button {
     
 }
 
-.btn-style:active .btn-front {
-    transform: translateY(-2px) translateX(-5px);
-  }
 
 #numbers {
     display: flex;
