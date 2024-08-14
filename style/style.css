@@ -8,6 +8,19 @@
     src: url(./8bitOperatorPlus8-Regular.ttf);
 }
 
+@media screen and (max-width: 516px) {
+    h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width:440px) {
+    h1 {
+        font-size: 1em;
+    }
+}
+    
+
 html {
     box-sizing: border-box;
   }
@@ -21,13 +34,17 @@ body {
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    padding: 100px;
     height: 100vh;
 
 }
 
 h1 {
     color: rgb(184, 97, 112);
+}
+
+a{
+    text-decoration: none;
+    color: rgb(52, 51, 52);
 }
 
 #calculator-background {
@@ -263,15 +280,3 @@ footer{
     font-weight: bold;
 }
 
-@media screen and (max-width: 516px) {
-    h1 {
-        font-size: 1.5em;
-    }
-}
-
-@media screen and (max-width:440px) {
-    h1 {
-        font-size: 1em;
-    }
-}
-    
