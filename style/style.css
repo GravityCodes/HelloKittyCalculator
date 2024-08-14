@@ -119,6 +119,9 @@ h1 {
     gap: 15px 0px;
 }
 
+button {
+    padding: 0px;
+}
 .op-btn-style {
     height: 60px;
     width: 60px;
@@ -147,17 +150,13 @@ h1 {
 }
 
 .op-btn-style:active .op-btn-front {
-    -webkit-transform: translateY(-2px) translateX(-5px);
     transform: translateY(-2px) translateX(-5px);
 }
 
 .op-btn-front,
 .btn-front {
-    -ms-transform: translate(-6px, -6px);
-    -moz-transform: translate(-6px, -6px);
-    -webkit-transform: translate(-6px, -6px);
-    -o-transform: translate(-6px,-6px);
-    transform: translate(-6px,-6px);
+
+    transform: translateY(-6px);
     
 }
 
@@ -186,10 +185,7 @@ h1 {
     width: 65px;
     background-color: rgb(229, 135, 210);
     border-radius: 50%;
-    outline-offset: 4px;
     border: none;
-
-    
 }
 
 .btn-font {
@@ -203,7 +199,7 @@ h1 {
     height: 65px;
     width: 65px;
     border-radius: 50%;
-    padding-top: 25px
+    padding-top: 25px;
     
 }
 
@@ -266,3 +262,4 @@ footer{
     font-family: monospace;
     font-weight: bold;
 }
+
