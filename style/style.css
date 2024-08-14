@@ -263,3 +263,15 @@ footer{
     font-weight: bold;
 }
 
+@media screen and (max-width: 516px) {
+    h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width:440px) {
+    h1 {
+        font-size: 1em;
+    }
+}
+    
