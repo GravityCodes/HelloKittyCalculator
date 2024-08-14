@@ -11,16 +11,14 @@ let secondNum = "";
 let operation = ""
 let total = "";
 
-
-const operatorSigns = {
-    plus: "+",
-    minus: "-",
-    multiply: "x",
-    divide: "÷"
-}
-
+const usableNumbers = ["1","2","3","4","5","6","7","8","9"];
+const usuableOperations = ["/", "*", "-", "+", "Enter"];
+//booleans
 let getSecondNum = false;
 let gotTotal = false;
+
+
+
 
 // Operation functions
 function add(a, b){
@@ -37,31 +35,31 @@ function multiply(a, b){
 
 function divide(a, b){
     return a / b;
-}
+};
 
 function operate(num1,num2,func){
     return func(num1, num2)
-}
+};
 
 function switchOperation(operation){
     switch(operation){
-        case "plus":
+        case "+":
             total = operate(Number(firstNum), Number(secondNum), add);         
             break;
-        case "minus":
+        case "-":
             total = operate(Number(firstNum), Number(secondNum), subtract);
             break;
-        case "multiply":
+        case "*":
             total = operate(Number(firstNum), Number(secondNum), multiply);
             break;
-        case 'divide':
+        case '/':
             total = operate(Number(firstNum), Number(secondNum), divide)
             break;
     }
     gotTotal = true;
     operation ="";
     total = Math.round(total * 100) / 100
-}
+};
 
 function allClearFunc() {
     gotTotal = false
@@ -70,20 +68,65 @@ function allClearFunc() {
     getSecondNum = false;
     displayText.textContent = "0";
     displayHistory.textContent = "";
+};
+
+function deleteNumber() {
+    if(getSecondNum) {
+        secondNum = secondNum.replace(secondNum[secondNum.length-1], '');
+        displayText.textContent = secondNum;
+        console.log(secondNum)
+    }
+    else{
+        firstNum = firstNum.replace(firstNum[firstNum.length-1], '');
+        displayText.textContent = firstNum;
+        console.log(firstNum)
+    }
 }
 
-//Calculate numbers 
-operations.forEach((operator) => operator.addEventListener('click', () => {
+function placeDot() {
+    if(gotTotal === true){
+        allClearFunc();
+        firstNum = ".";
+        displayText.textContent = firstNum;
+    }
+    else if(getSecondNum && (secondNum === "" || !secondNum.includes("."))){
+        secondNum += ".";
+        displayText.textContent = secondNum;
+    }
+    else if(firstNum === "" || firstNum.includes(".") === false){
+        console.log(firstNum.includes("."))
+        firstNum += ".";
+        displayText.textContent = firstNum;
+    }
+};
 
-    if(operator.id != "equal" && firstNum === ""){
+function placeNumber(num) {
+    if(gotTotal === true && operation === ""){
+        allClearFunc();
+        firstNum = String(Number(num));
+        displayText.textContent = firstNum;
+    }
+    else if(!getSecondNum){
+        firstNum += String(Number(num));
+        displayText.textContent = firstNum;
+    }
+    else if(getSecondNum){
+        secondNum += String(Number(num));
+        displayText.textContent = secondNum;
+    }
+    
+}
+
+function placeOperation(operator) {
+    if((operator != "Enter") && firstNum === ""){
         firstNum = "0"
         getSecondNum = true;
         gotTotal = false;
-        displayHistory.textContent = `${firstNum} ${operatorSigns[operation]}`;
+        displayHistory.textContent = `${firstNum} ${operation}`;
     }
-    else if(operator.id === "equal" && firstNum != "" && secondNum != "") {
+    else if((operator === "Enter") && firstNum != "" && secondNum != "") {
         switchOperation(operation)
-        displayHistory.textContent =`${firstNum} ${operatorSigns[operation]} ${secondNum} = `
+        displayHistory.textContent =`${firstNum} ${operation} ${secondNum} = `
         secondNum = ""
         firstNum = String(total)
         displayText.textContent = total
@@ -95,39 +138,39 @@ operations.forEach((operator) => operator.addEventListener('click', () => {
         secondNum = ""
         firstNum = String(total)
         displayText.textContent = total
-        operation = operator.id
-        displayHistory.textContent = ` ${firstNum} ${operatorSigns[operation]}`
+        operation = operator
+        displayHistory.textContent = ` ${firstNum} ${operation}`
     }
-    else if(operator.id != "equal") {
-        operation = operator.id;
-        console.log(operatorSigns[operation]);
+    else if(operator != "Enter") {
+        operation = operator;
+        console.log(operation);
         getSecondNum = true;
         gotTotal = false;
-        displayHistory.textContent = `${firstNum} ${operatorSigns[operation]} `;
+        displayHistory.textContent = `${firstNum} ${operation} `;
     }
-    
-    
-}))
+}
+
+//Calculate numbers 
+operations.forEach((operator) => operator.addEventListener('click', () => placeOperation(operator.id)));
 
 
 //Get first number and second number
-numButtons.forEach((num) => num.addEventListener('click', () => {
-    if(gotTotal === true && operation === ""){
-        allClearFunc();
-        firstNum = String(Number(num.textContent));
-        displayText.textContent = firstNum;
+numButtons.forEach((num) => num.addEventListener('click', () => placeNumber(num.textContent)));
+document.addEventListener("keydown", key => {
+    if (usuableOperations.includes(key.key)){
+        placeOperation(key.key)
     }
-    else if(!getSecondNum){
-        firstNum += String(Number(num.textContent));
-        displayText.textContent = firstNum;
+    else if (usableNumbers.includes(key.key)){
+        placeNumber(key.key);
     }
-    else if(getSecondNum){
-        secondNum += String(Number(num.textContent));
-        displayText.textContent = secondNum;
+    else if(key.key === "."){
+        placeDot();
     }
-    
-    
-}));
+    else if(key.key === "Backspace"){
+        deleteNumber();
+    }
+});
+
 
 zeroButton.addEventListener('click', () => {
     if(gotTotal === true && operation === false){
@@ -160,16 +203,7 @@ buttonFunctions.forEach((button) => button.addEventListener('click', () => {
                 displayText.textContent = "0";
                 break;
             case "delete":
-                if(getSecondNum) {
-                    secondNum = secondNum.replace(secondNum[secondNum.length-1], '');
-                    displayText.textContent = secondNum;
-                    console.log(secondNum)
-                }
-                else{
-                    firstNum = firstNum.replace(firstNum[firstNum.length-1], '');
-                    displayText.textContent = firstNum;
-                    console.log(firstNum)
-                }
+                deleteNumber();
                 break;
         }  
     }
@@ -178,24 +212,6 @@ buttonFunctions.forEach((button) => button.addEventListener('click', () => {
     
 // dot button logic
 
-dot.addEventListener('click', () => {
-    if(gotTotal === true){
-        allClearFunc();
-        firstNum = ".";
-        displayText.textContent = firstNum;
-    }
-    else if(getSecondNum && (secondNum === "" || !secondNum.includes("."))){
-        secondNum += ".";
-        displayText.textContent = secondNum;
-    }
-    else if(firstNum === "" || firstNum.includes(".") === false){
-        console.log(firstNum.includes("."))
-        firstNum += ".";
-        displayText.textContent = firstNum;
-    }
-    
-})
-
-
+dot.addEventListener('click', () => placeDot());
 
 
